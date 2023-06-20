@@ -1,0 +1,382 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bfdf1487-7020-47e3-8a3f-4b0e3f618670",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'str'>\n",
+      "<class 'list'>\n",
+      "<class 'float'>\n",
+      "<class 'tuple'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Question no.1 create one variable containing following type of data\n",
+    "#1. string\n",
+    "#Ans.1 \n",
+    "a = \"Hello World\"\n",
+    "print(type(a))\n",
+    "#2. list\n",
+    "#Ans.2\n",
+    "b = [1,2,3,4,5]\n",
+    "print(type(b))\n",
+    "#3. float\n",
+    "#Ans.3\n",
+    "c = 56.78\n",
+    "print(type(c))\n",
+    "#4. tuple\n",
+    "#Ans.4\n",
+    "d = (1,2,3,4,5)\n",
+    "print(type(d))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "adb9bae7-dd4c-4eba-b50d-8d081b617fbc",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'list'>\n",
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Qustion no.2 What will be the data type of the given variables\n",
+    "#1.\n",
+    "var1 = ''\n",
+    "#Ans.1 Single quotes indicates that it is a string \n",
+    "print(type(var1))\n",
+    "#2.\n",
+    "var2 = '[DS,ML,Python]'\n",
+    "#Ans.2 The value assigned to var2,is inside single quotes,this indicates that it is a string \n",
+    "print(type(var2))\n",
+    "#3.\n",
+    "var3 = ['DS','ML','Python']\n",
+    "#Ans.3 Square brackets indicates that it is a list \n",
+    "print(type(var3))\n",
+    "#4.\n",
+    "var4 = 1\n",
+    "#Ans.4 Whole number without a fractional part indicates that it is an integer or int \n",
+    "print(type(var4))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "4b1bbbad-62a4-48be-a211-792b65cf58d6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.0\n",
+      "1\n",
+      "2\n",
+      "8\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question no.3 Explain the use of the following operators using an example\n",
+    "#1. /\n",
+    "#Ans.1 This is an arithemetic operator know as float division operator,it divides the first operand by the second,\n",
+    "# The quotient returned by this operator is always a whole number,no matter if two numbers are integers.\n",
+    "# Example :\n",
+    "dividend = 4\n",
+    "divisor = 2\n",
+    "quotient = dividend / divisor\n",
+    "print(quotient)\n",
+    "#2. %\n",
+    "#Ans.2 This is an arithmetic operator known as modulus operator,it returns the remainder when the first operand\n",
+    "# is divided by the second.\n",
+    "# Example : \n",
+    "dividend = 5\n",
+    "divisor = 2\n",
+    "remainder = dividend % divisor\n",
+    "print(remainder)\n",
+    "#3. //\n",
+    "#Ans.3 This is an arithmetic operator known as floor division operator,it allows us to divide two numbers and rounds\n",
+    "# the resultant value down to the nearest integer.\n",
+    "# Example :\n",
+    "dividend = 13\n",
+    "divisor = 5\n",
+    "result = dividend // divisor\n",
+    "print(result)\n",
+    "#4. **\n",
+    "#Ans.4 This is an arithmetic oprator known as power operator,it is used to raise the number on the left as the power\n",
+    "# to the power of the exponent of the right.\n",
+    "# Example : \n",
+    "base = 2\n",
+    "power = 3\n",
+    "answer = base ** power\n",
+    "print(answer)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "941457f2-04b9-47e3-a5b3-ffcb70666c1a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "<class 'int'>\n",
+      "56.7\n",
+      "<class 'float'>\n",
+      "Hello\n",
+      "<class 'str'>\n",
+      "(7+8j)\n",
+      "<class 'complex'>\n",
+      "True\n",
+      "<class 'bool'>\n",
+      "[1, 2, 3]\n",
+      "<class 'list'>\n",
+      "(4, 5, 6)\n",
+      "<class 'tuple'>\n",
+      "{'math': 99.9, 'comp': 100}\n",
+      "<class 'dict'>\n",
+      "{8, 9, 7}\n",
+      "<class 'set'>\n",
+      "None\n",
+      "<class 'NoneType'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Question no.2 create a list of length 10 of your choice containing multiple types of data,\n",
+    "# Using for loop print the element and it's data type\n",
+    "#Ans.2 :\n",
+    "my_list = [1,56.7,\"Hello\",7+8j,True,[1,2,3],(4,5,6),{'math' : 99.9 , 'comp' : 100 },{7,8,9},None]\n",
+    "for i in my_list : \n",
+    "    print(i)\n",
+    "    print(type(i))\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "839adda4-0657-4e3f-8d90-6f133f756f58",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A is divisible by B 2 times\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Question no.5 Using a while loop,verify if the number A is purely divisible by number B and if so\n",
+    "# then how many times,it can be divisible\n",
+    "#Ans.5 :\n",
+    "A = 180\n",
+    "B = 2\n",
+    "count = 0\n",
+    "while A % B == 0 :\n",
+    "    A = A // B\n",
+    "    count += 1\n",
+    "print(f\"A is divisible by B {count} times\")    \n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "e14383da-fb24-473c-97af-9d78ac4ae751",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4 is not divisible by 3\n",
+      "5 is not divisible by 3\n",
+      "6 is divisible by 3\n",
+      "1 is not divisible by 3\n",
+      "11 is not divisible by 3\n",
+      "24 is divisible by 3\n",
+      "3 is divisible by 3\n",
+      "9 is divisible by 3\n",
+      "17 is not divisible by 3\n",
+      "19 is not divisible by 3\n",
+      "20 is not divisible by 3\n",
+      "18 is divisible by 3\n",
+      "27 is divisible by 3\n",
+      "21 is divisible by 3\n",
+      "30 is divisible by 3\n",
+      "60 is divisible by 3\n",
+      "66 is divisible by 3\n",
+      "81 is divisible by 3\n",
+      "240 is divisible by 3\n",
+      "693 is divisible by 3\n",
+      "12 is divisible by 3\n",
+      "13 is not divisible by 3\n",
+      "14 is not divisible by 3\n",
+      "15 is divisible by 3\n",
+      "36 is divisible by 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Question no.6 Create a list containing 25 int type data. using for loop and if_else condition\n",
+    "# print if the element is divisible by 3 or not.\n",
+    "int_list = [4,5,6,1,11,24,3,9,17,19,20,18,27,21,30,60,66,81,240,693,12,13,14,15,36]\n",
+    "for i in int_list :\n",
+    "    if i % 3 == 0 :\n",
+    "        print(f\"{i} is divisible by 3\")\n",
+    "    else :\n",
+    "        print(f\"{i} is not divisible by 3\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "951c9061-0f42-4152-b55b-eae90f59f88d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Examples of mutable data types : \n",
+      "Before : [1, 2, 4]\n",
+      "After : [1, 2, 3, 4]\n",
+      "Hence,we have changed the list \n",
+      "Before :  {'math': 80, 'comp': 100}\n",
+      "After :  {'math': 99, 'comp': 100}\n",
+      "hence,we have changed the dictionary\n",
+      "Before : {1, 2, 3, 4, 6}\n",
+      "After :  {1, 2, 3, 4}\n",
+      "Hence , we have changed the set\n",
+      "Examples of immutable data types : \n",
+      " an object of an int data type :  5\n",
+      "'x' is the reference variable of this object\n",
+      "new object,of int data type, is created :  6\n",
+      "Now , 'x' is the reference variable of this NEW object \n",
+      " an object of an string data type :  Hello Everyone\n",
+      "'s' is the reference variable of this object\n",
+      "new object,of string data type, is created :  Bye Everyone\n",
+      "Now , 's' is the reference variable of this NEW object \n",
+      " an object of an tuple data type :  (11, 22, 33, 44)\n",
+      "'t' is the reference variable of this object\n",
+      "new object,of tuple data type, is created :  (11, 22, 33, 44)\n",
+      "Now , 't' is the reference variable of this NEW object \n"
+     ]
+    }
+   ],
+   "source": [
+    "# Question no.7 What do you understand about mutable and immutable data  types ? Give examples for \n",
+    "# both showing this property\n",
+    "#Answer no.7 : \n",
+    "\"\"\"Mutable data types : mutable data types are the  types  that stores those objects whose value can be changed or modified\n",
+    "after they have been created.\n",
+    "Mutable data types : list , dictioary and set.\"\"\"\n",
+    "print(\"Examples of mutable data types : \") \n",
+    "# example of a list :\n",
+    "l = [1,2,4]\n",
+    "print('Before :',l)    \n",
+    "l.insert(2,3) # Here , we are changing the list l\n",
+    "print('After :',l)\n",
+    "print('Hence,we have changed the list ')\n",
+    "# example of a dictionary :\n",
+    "d = {'math' : 80 ,'comp' : 100}\n",
+    "print('Before : ' , d)\n",
+    "d['math'] = 99 # Here , we are changing the dictionary d\n",
+    "print('After : ' , d)\n",
+    "print('hence,we have changed the dictionary')\n",
+    "# example of a set : \n",
+    "s = {1,2,3,6,4}\n",
+    "print('Before :',s)\n",
+    "s.remove(6) # Here, we are changing the set\n",
+    "print('After : ', s)\n",
+    "print('Hence , we have changed the set')\n",
+    "\"\"\"Immutable data types : immutable data types are the data types that stores those objects whose value can not be changed or \n",
+    "modified after they have been created.\n",
+    "Immutable data types : int , float ,string , tuple , etc \"\"\"\n",
+    "print(\"Examples of immutable data types : \") \n",
+    "# example of int :\n",
+    "x = 5\n",
+    "print(' an object of an int data type : ' , x)\n",
+    "print(\"'x' is the reference variable of this object\")\n",
+    "x = 6 # Here a new object is created \n",
+    "print('new object,of int data type, is created : ' , x)\n",
+    "print(\"Now , 'x' is the reference variable of this NEW object \")\n",
+    "# example of string : \n",
+    "s = \"Hello Everyone\"\n",
+    "print(' an object of an string data type : ' , s)\n",
+    "print(\"'s' is the reference variable of this object\")\n",
+    "s = 'Bye Everyone' # Here a new object is created \n",
+    "print('new object,of string data type, is created : ' , s)\n",
+    "print(\"Now , 's' is the reference variable of this NEW object \")\n",
+    "# example of a tuple :\n",
+    "t = (11,22,33,44)\n",
+    "print(' an object of an tuple data type : ' , t)\n",
+    "print(\"'t' is the reference variable of this object\")\n",
+    "s = (55,66,77,88) # Here a new object is created \n",
+    "print('new object,of tuple data type, is created : ' , t)\n",
+    "print(\"Now , 't' is the reference variable of this NEW object \")\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8719d5a9-7cda-430d-9bae-e38237cc5fb4",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
