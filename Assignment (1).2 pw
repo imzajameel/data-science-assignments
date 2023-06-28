@@ -1,0 +1,318 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "246817d0-a449-4b93-9b97-0ed0e1c828ec",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.1 How do you comment code in python ? What are the different types of comments ? \n",
+    "#Answer.1 We  can comment code in python , using hashtag symbol(#) , triple double quotes (\"\"\") or triple single quotes (''')\n",
+    "#There are three types of comments in python :\n",
+    "#1. Single-line Comments : \n",
+    "#Single line Comment starts with the hashtag (#) symbol and lasts till the end of the line.\n",
+    "#2.Multi-line comments : \n",
+    "#Python does NOT provide the option for multiline comments.However,there are different ways through which we can write\n",
+    "#multiline comments : \n",
+    "# by using multiple hashtags :We can use multiple hashtags ,each at a line ,to write multiline comments.Each and every line \n",
+    "#will be considered as  single-line comment.\n",
+    "# or \n",
+    "#by using string literals : Python ignores the string literals that are not assigned to a variable so we can use these string\n",
+    "#literals as python comments.we can write it using triple single quotes or triple double quotes\n",
+    "#3.Docstring Comments :\n",
+    "#The string literals with triple quotes that are appeared right after the function.It is used to associate documentation that \n",
+    "#has been written with Python modules,functions,classes and methods.It is added right below the functions,modules, or classes \n",
+    "#to describe what they do.The docstring is then made available via the __doc__ attribute."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d1a2245e-8f05-475c-8ece-34d8cadea9c1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.2 What are variables in python ? How do you declare and assign values to variables ?\n",
+    "#Answer.2 Variables are named reserved memory location to store values like a container.A variable is a symbolic\n",
+    "#name that is a  reference or a pointer to an object.\n",
+    "#Steps to declare and assign value to a variable :\n",
+    "#Note : In Python, you don't need to explicitly declare variables with their data types,You can simply assign a value to a \n",
+    "#vaiable and the Python will dynamically declare it's type based on the assignd value.\n",
+    "#step.1 Write the name of the variable \n",
+    "#Step.2 Put the assignment operator i.e '='\n",
+    "#Step.3 Write the value you wanna assign to the  variable \n",
+    "#Example :\n",
+    "var1 = 25 \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "1a4e6a6a-8c41-49d8-a14f-0b25fdeee33c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'str'>\n",
+      "<class 'int'>\n",
+      "<class 'int'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'float'>\n",
+      "<class 'tuple'>\n",
+      "<class 'list'>\n",
+      "<class 'list'>\n",
+      "<class 'tuple'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.3 How do you convert one data type to another in python ?\n",
+    "#Answer.3  We can convert one data type to another in python by doing type casting ,Typecasting refers to explicitly \n",
+    "#converting one data type to another .It can be done by  using the type conversion functions or constructors,some of them are \n",
+    "#as follows :\n",
+    "#1.int() : converts the data type into the integer \n",
+    "#Example : \n",
+    "s = '10'\n",
+    "print(type(s))\n",
+    "n = int(s)\n",
+    "print(type(n))\n",
+    "#2.str() : converts the data type into the string (if possible) \n",
+    "#Example :\n",
+    "n = 10 \n",
+    "print(type(n))\n",
+    "s = str(n) \n",
+    "print(type(s))\n",
+    "#3.float() : converts the data type into the float \n",
+    "s = '56.99'\n",
+    "print(type(s))\n",
+    "f = float(s)\n",
+    "print(type(f))\n",
+    "#4.list() : converts the data type into the  list (if possible)\n",
+    "#Example : \n",
+    "t = (1,2,3,4,5,6,7)\n",
+    "print(type(t))\n",
+    "l = list(t)\n",
+    "print(type(l))\n",
+    "#tuple() : converts the data type ino the tuple (if possible)\n",
+    "#Example : \n",
+    "l = [1,2,3,4,5,6,7,8,9,10]\n",
+    "print(type(l))\n",
+    "t = tuple(l)\n",
+    "print(type(t))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2ec99b01-a3c1-4a2e-9fcb-ffb2a5008d68",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.4 How do you write and execute a python script from the command line ?\n",
+    "#Answer.4  Steps to write and execute a python script from the command line are as follows  : \n",
+    "#step.1 Open a text editor or an Itegrated Development Environment(IDE) and create a new file.Save the file with a \n",
+    "#'.py' extension , For example, you can name it 'script.py' \n",
+    "#step.2 Write your Python 3 code in he file.\n",
+    "#step.3 Open a command prompt or terminal on your computer\n",
+    "#step.4 Navigate to the directory where you saved your python script using the 'cd' command,using the syntax valid for your \n",
+    "#Operating System.If your script is saved say  in the 'Documents' folder,you can use the following command on windows.\n",
+    "#cd Documents\n",
+    "#On macOS or Linux , you can use the folowing command \n",
+    "#cd ~/ Documents\n",
+    "#Step.5 Once you are in the correct directory , you can execute the python script by typing 'python' \n",
+    "#Note : Make sure you have Python 3 installed on your computer and the 'python' command is set up correctly in your system's \n",
+    "#PATH environment variable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "e615a204-b46a-4b1f-8563-0a24a4c43247",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.5 Given a list my_list = [1,2,3,4,5] , write the code to slice the list and obtain the sub_list  [2,3] \n",
+    "#Answer.5 \n",
+    "my_list = [1,2,3,4,5]\n",
+    "sub_list = my_list[1:3]\n",
+    "print(sub_list)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "a0ad9c14-6d36-409b-80a1-5452762523b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'complex'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.6 What is a complex number in mathematics , and how is it represented in python\n",
+    "#Answer.6 In mathematics , a complex number is a number that can be expressed in the form of a+bi , where \"a\" and \"b\" \n",
+    "#are real numbers and \"i\" is the imaginary unit defined by the property i^2 = -1.The real part , a, corresponds to the real \n",
+    "#numbers , while the imaginary part, bi ,involves the imaginary unit multiplied by a real number.\n",
+    "#In Python , A complex number is represented by a : a + bj , where a is the real part and  bj represents the imaginary\n",
+    "#part.\n",
+    "#Example :\n",
+    "comp_num = 5 + 8j\n",
+    "print(type(comp_num))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "272d614c-6360-4bd5-bcb2-580d7b19bc48",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "age :  25\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.7 What is the correct way to declare a variable named age and assign the value 25 to it\n",
+    "#Answer.7 :\n",
+    "age = 25\n",
+    "print('age : ' , age)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "ee9cff44-cc81-47cc-954e-5a9f30d8ea12",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'float'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Quesion.8 Declare a variable named price and assign the value 9.99 to it.What data type does this variable belong to ?\n",
+    "#Answer.8 :\n",
+    "price = 9.99 #this variable belong to float data type\n",
+    "print(type(price))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "5be94d2b-53c0-4dcd-850e-87b6e40e5117",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Imza Jameel\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.9 Create a variable named name  and assign your full name to it as a string. How would you print the value\n",
+    "#of this variable ?\n",
+    "#Answer.9 :\n",
+    "name = 'Imza Jameel'\n",
+    "# We will print the value of the variable name by using the print() function\n",
+    "print(name)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "955bc556-50b8-4123-ba11-9ec88f63450b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "World\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.10 Give the string \"Hello, World!\" ,extract the substring \"World\".\n",
+    "#Answer.10 :\n",
+    "string = \"Hello, World!\"\n",
+    "substring = string[7:12]\n",
+    "print(substring)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "5f7d985b-3300-4275-a3c7-02c646794582",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.11 Create a variable named \"is_student\" and assign it a boolean value indicating whether \n",
+    "#you are currently  a student or not.\n",
+    "#Answer.11 : \n",
+    "is_student = True \n",
+    "print(is_student)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0f5ea8c7-4237-4b79-9fdf-d7c2aac2bee0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
