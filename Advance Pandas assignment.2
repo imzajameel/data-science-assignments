@@ -1,0 +1,768 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "5dcee27d-3648-4e2c-bffb-35ec99392cd2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "course_name    Machine Learning\n",
+      "duration                      3\n",
+      "Name: 1, dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Pandas Advance Assignment.2 \n",
+    "#Consider following code to answer further questions:\n",
+    "#import pandas as pd\n",
+    "#course_name = [‘Data Science’, ‘Machine Learning’, ‘Big Data’, ‘Data Engineer’]\n",
+    "#duration = [2,3,6,4]\n",
+    "#df = pd.DataFrame(data = {‘course_name’ : course_name, ‘duration’ : duration})\n",
+    "#Question.1 Write a code to print the data present in the second row of the dataframe, df.\n",
+    "#Answer.1 : \n",
+    "import pandas as pd\n",
+    "\n",
+    "course_name = ['Data Science', 'Machine Learning', 'Big Data', 'Data Engineer']\n",
+    "duration = [2, 3, 6, 4]\n",
+    "df = pd.DataFrame(data={'course_name': course_name, 'duration': duration})\n",
+    "\n",
+    "# Print the data in the second row\n",
+    "second_row_data = df.iloc[1]\n",
+    "print(second_row_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c5518c08-b2e8-45e3-a870-055f00f9396f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.2 What is the difference between the functions loc and iloc in pandas.DataFrame?\n",
+    "#Answer.2  In Pandas, loc and iloc are two methods used to access data from a DataFrame, but they have some key \n",
+    "#differences in how they work:\n",
+    "\n",
+    "#loc: The loc method is label-based indexing, which means you use it to access data using row and column labels \n",
+    "#(names) rather than their integer positions. You can use loc to access specific rows and columns using their labels.\n",
+    "\n",
+    "#Syntax: df.loc[row_label, column_label]\n",
+    "\n",
+    "#Example:\n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "data = {'Name': ['Alice', 'Bob', 'Charlie'],\n",
+    "        'Age': [25, 30, 22],\n",
+    "        'City': ['New York', 'San Francisco', 'Los Angeles']}\n",
+    "\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Access data for row with label 'Bob'\n",
+    "row_bob = df.loc[1]\n",
+    "\n",
+    "# Access data for row with label 'Alice' and column 'Age'\n",
+    "alice_age = df.loc['Alice', 'Age']\n",
+    "\n",
+    "#iloc: The iloc method is integer-based indexing, which means you use it to access data using row and column \n",
+    "#integer positions. You can use iloc to access specific rows and columns using their integer indices.\n",
+    "\n",
+    "#Syntax: df.iloc[row_index, column_index]\n",
+    "\n",
+    "#Example:\n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "data = {'Name': ['Alice', 'Bob', 'Charlie'],\n",
+    "        'Age': [25, 30, 22],\n",
+    "        'City': ['New York', 'San Francisco', 'Los Angeles']}\n",
+    "\n",
+    "df = pd.DataFrame(data)\n",
+    "\n",
+    "# Access data for the second row (index 1)\n",
+    "row_bob = df.iloc[1]\n",
+    "\n",
+    "# Access data for the first row and second column (row index 0, column index 1)\n",
+    "alice_age = df.iloc[0, 1]\n",
+    "\n",
+    "#In summary, the key difference between loc and iloc lies in how they access data: loc uses labels (names\n",
+    "#while iloc uses integer positions (indices). It's essential to understand the distinction and choose the appropriate \n",
+    "#method based on whether you want to access data using labels or integer indices."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c7aab755-9b7e-4167-934d-d9ff22857714",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "        course_name  duration\n",
+      "3     Data Engineer         4\n",
+      "0      Data Science         2\n",
+      "1  Machine Learning         3\n",
+      "2          Big Data         6\n",
+      "Output of new_df.loc[2]:\n",
+      "course_name    Big Data\n",
+      "duration              6\n",
+      "Name: 2, dtype: object\n",
+      "\n",
+      "Output of new_df.iloc[2]:\n",
+      "course_name    Machine Learning\n",
+      "duration                      3\n",
+      "Name: 1, dtype: object\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.3 Reindex the given dataframe using a variable, reindex = [3,0,1,2] and store it in the variable, new_df\n",
+    "#then find the output for both new_df.loc[2] and new_df.iloc[2].Did you observe any difference in both the outputs? \n",
+    "#If so then explain it.\n",
+    "#Answer.3 To reindex the given DataFrame and then find the output for both new_df.loc[2] and new_df.iloc[2], follow \n",
+    "#these steps:\n",
+    "import pandas as pd\n",
+    "\n",
+    "course_name = ['Data Science', 'Machine Learning', 'Big Data', 'Data Engineer']\n",
+    "duration = [2, 3, 6, 4]\n",
+    "df = pd.DataFrame(data={'course_name': course_name, 'duration': duration})\n",
+    "\n",
+    "# Reindex the DataFrame using a variable 'reindex'\n",
+    "reindex = [3, 0, 1, 2]\n",
+    "new_df = df.reindex(reindex)\n",
+    "\n",
+    "# Print new_df to observe the reindexed DataFrame\n",
+    "print(new_df)\n",
+    "\n",
+    "# Find the output for both new_df.loc[2] and new_df.iloc[2]\n",
+    "print(\"Output of new_df.loc[2]:\")\n",
+    "print(new_df.loc[2])\n",
+    "\n",
+    "print(\"\\nOutput of new_df.iloc[2]:\")\n",
+    "print(new_df.iloc[2])\n",
+    "\n",
+    "#Difference in Outputs:\n",
+    "\n",
+    "#When using new_df.loc[2], it returns the row with label 2 in the DataFrame new_df. In this case, the label 2 \n",
+    "#corresponds to the row containing the course \"Big Data\" with a duration of 6.\n",
+    "#When using new_df.iloc[2], it returns the row with the integer index 2 in the DataFrame new_df. In this case, \n",
+    "#the integer index 2 corresponds to the row containing the course \"Machine Learning\" with a duration of 3.\n",
+    "#The outputs are different because loc is label-based indexing, while iloc is integer-based indexing. It's \n",
+    "#important to be cautious while using loc and iloc to avoid confusion between label-based and integer-based indexing,\n",
+    "#especially when the DataFrame has been reindexed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "474ec0b7-0909-4119-aef1-b1c0f0364c4d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean of each column:\n",
+      "column_1    0.525449\n",
+      "column_2    0.421913\n",
+      "column_3    0.479276\n",
+      "column_4    0.444187\n",
+      "column_5    0.506642\n",
+      "column_6    0.566841\n",
+      "dtype: float64\n",
+      "\n",
+      "Standard deviation of 'column_2': 0.39130629118663235\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Consider the below code to answer further questions:\n",
+    "#import pandas as pd\n",
+    "#import numpy as np\n",
+    "#columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']\n",
+    "#indices = [1,2,3,4,5,6]\n",
+    "#Creating a dataframe:\n",
+    "#df1 = pd.DataFrame(np.random.rand(6,6), columns = columns, index = indices)\n",
+    "\n",
+    "#Question.4 Q4. Write a code to find the following statistical measurements for the above dataframe df1:\n",
+    "#(i) mean of each and every column present in the dataframe.\n",
+    "#(ii) standard deviation of column, ‘column_2’\n",
+    "\n",
+    "#Answer.4 To find the requested statistical measurements for the DataFrame df1, you can use the Pandas functions\n",
+    "#directly. Here's how to calculate the mean of each column and the standard deviation of the 'column_2':\n",
+    "\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']\n",
+    "indices = [1, 2, 3, 4, 5, 6]\n",
+    "\n",
+    "# Creating a DataFrame:\n",
+    "df1 = pd.DataFrame(np.random.rand(6, 6), columns=columns, index=indices)\n",
+    "\n",
+    "# (i) Mean of each and every column\n",
+    "column_means = df1.mean()\n",
+    "print(\"Mean of each column:\")\n",
+    "print(column_means)\n",
+    "\n",
+    "# (ii) Standard deviation of column 'column_2'\n",
+    "column_2_std = df1['column_2'].std()\n",
+    "print(\"\\nStandard deviation of 'column_2':\", column_2_std)\n",
+    "\n",
+    "#The mean() function of DataFrame calculates the mean for each column by default. It returns a Pandas Series with \n",
+    "#column names as indices and their respective means as values.\n",
+    "#The std() function of DataFrame calculates the standard deviation of a specific column. In this case, we applied it to \n",
+    "#'column_2' to get the standard deviation for that particular column.\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "8ec7028a-ec33-4a87-80f9-cf87b5ab2e6b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.5 Replace the data present in the second row of column, ‘column_2’ by a string variable then find the\n",
+    "#mean of column, column_2.If you are getting errors in executing it then explain why.\n",
+    "#Answer.5 : \n",
+    "#import pandas as pd\n",
+    "#import numpy as np\n",
+    "\n",
+    "#columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']\n",
+    "#indices = [1, 2, 3, 4, 5, 6]\n",
+    "\n",
+    "# Creating a DataFrame:\n",
+    "#df1 = pd.DataFrame(np.random.rand(6, 6), columns=columns, index=indices)\n",
+    "# Replace data in the second row of 'column_2' with a string variable\n",
+    "#string_data = \"Replacement String\"\n",
+    "#df1.loc[2, 'column_2'] = string_data\n",
+    "# Calculate the mean of 'column_2'\n",
+    "#column_2_mean = df1['column_2'].mean()\n",
+    "#print(\"Mean of 'column_2':\", column_2_mean)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "31691c78-ce9e-4eb1-8048-57882bcdb329",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original DataFrame:\n",
+      "   column_1  column_2  column_3  column_4  column_5  column_6\n",
+      "1  0.258468  0.791605  0.839137  0.752923  0.653164  0.564961\n",
+      "2  0.118276  0.587746  0.463273  0.624895  0.432016  0.917645\n",
+      "3  0.999107  0.746146  0.143522  0.599834  0.001262  0.016035\n",
+      "4  0.883904  0.499121  0.581976  0.725736  0.421534  0.495605\n",
+      "5  0.404364  0.878333  0.563419  0.436258  0.556059  0.039007\n",
+      "6  0.058316  0.306156  0.913650  0.378136  0.773521  0.692392\n",
+      "\n",
+      "Mean of 'column_2': 0.644272166305248\n"
+     ]
+    }
+   ],
+   "source": [
+    "#The error we are encountering is due to the attempt to calculate the mean of 'column_2' after replacing the data with a\n",
+    "#string value. The mean function (np.mean or pd.Series.mean()) cannot perform mathematical operations on a mixture of \n",
+    "#numeric and non-numeric data types.\n",
+    "\n",
+    "#To fix this issue, we can convert the 'column_2' values to numeric before calculating the mean. Here's the modified \n",
+    "#code:\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "columns = ['column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'column_6']\n",
+    "indices = [1, 2, 3, 4, 5, 6]\n",
+    "\n",
+    "# Creating a DataFrame:\n",
+    "df1 = pd.DataFrame(np.random.rand(6, 6), columns=columns, index=indices)\n",
+    "\n",
+    "# Print the original DataFrame\n",
+    "print(\"Original DataFrame:\")\n",
+    "print(df1)\n",
+    "\n",
+    "# Replace data in the second row of 'column_2' with a string variable\n",
+    "string_data = \"Replacement String\"\n",
+    "df1.loc[2, 'column_2'] = string_data\n",
+    "\n",
+    "# Convert 'column_2' to numeric type (if possible)\n",
+    "df1['column_2'] = pd.to_numeric(df1['column_2'], errors='coerce')\n",
+    "\n",
+    "# Calculate the mean of 'column_2'\n",
+    "column_2_mean = df1['column_2'].mean()\n",
+    "print(\"\\nMean of 'column_2':\", column_2_mean)\n",
+    " \n",
+    "#In this modified version, we added pd.to_numeric() to convert the values in 'column_2' to numeric type. The parameter \n",
+    "#errors='coerce' handles any non-numeric values by converting them to NaN (Not a Number) so that they don't interfere\n",
+    "#with the calculation of the mean. Now, the mean of 'column_2' should be calculated correctly, even after replacing the\n",
+    "#data with a string value."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "80bbcc8c-e131-438f-92b8-e3e97064c425",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Question.6 What do you understand about the windows function in pandas and list the types of windows\n",
+    "#functions?\n",
+    "#Answer.6 In Pandas, the term \"window functions\" refers to a group of operations that allow you to perform calculations \n",
+    "#on a specific window of data within a DataFrame. These window functions are particularly useful for tasks like moving\n",
+    "#averages, cumulative sums, rolling statistics, and other time-series and sequential data computations.\n",
+    "\n",
+    "#The main idea behind window functions is to apply a function to a subset of data (window) defined by a fixed-size or\n",
+    "#variable-size window, and then \"slide\" the window along the data to calculate the function for each window. This sliding\n",
+    "#behavior enables the window functions to compute aggregated results over different partitions or time intervals.\n",
+    "\n",
+    "#Pandas provides a powerful window function framework, primarily through the rolling and expanding methods of Series \n",
+    "#and DataFrames. The main types of window functions are as follows:\n",
+    "\n",
+    "#Rolling Window Functions (rolling()):\n",
+    "#The rolling window function calculates a statistic (e.g., mean, sum, standard deviation) over a fixed-size window that\n",
+    "#\"rolls\" along the data. The window size is specified, and the function moves one step at a time to calculate the result\n",
+    "#for each window. This is useful for tasks involving moving averages, rolling sums, etc.\n",
+    "\n",
+    "#Expanding Window Functions (expanding()):\n",
+    "#The expanding window function calculates a statistic over a window that grows with the data. It starts with the first\n",
+    "#data point and expands to include additional points as it moves along the data. This is useful for cumulative sums,\n",
+    "#cumulative products, etc.\n",
+    "\n",
+    "#Exponentially Weighted Window Functions (ewm()):\n",
+    "#The exponentially weighted moving average (EWMA) function assigns exponentially decreasing weights to data points in a\n",
+    "#window. This means more recent data points have more influence on the result than older ones. EWMA is useful for tasks\n",
+    "#where more significance is given to recent observations, such as trend analysis.\n",
+    "\n",
+    "#These window functions provide great flexibility in performing complex computations on rolling or expanding subsets of \n",
+    "#data efficiently. They are especially handy when dealing with time-series data or sequential data where temporal \n",
+    "#dependencies are important.\n",
+    "\n",
+    "#To use these window functions, you typically apply them to a specific column or series in a DataFrame and then chain\n",
+    "#them with aggregation functions like mean(), sum(), std(), etc., to get the desired results."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "e2ef1a78-0011-4225-ab15-e2dc1e0d5df4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Current Month: 7\n",
+      "Current Year: 2023\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.7 Write a code to print only the current month and year at the time of answering this question.\n",
+    "#Answer.7 : \n",
+    "import pandas as pd\n",
+    "\n",
+    "# Get the current date and time\n",
+    "current_date = pd.Timestamp.now()\n",
+    "\n",
+    "# Extract the month and year from the current date\n",
+    "current_month = current_date.month\n",
+    "current_year = current_date.year\n",
+    "\n",
+    "# Print the current month and year\n",
+    "print(\"Current Month:\", current_month)\n",
+    "print(\"Current Year:\", current_year)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "f42da20d-6373-413d-84da-59a87cb44f20",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the start date (YYYY-MM-DD):\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " 2023-01-01\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the end date (YYYY-MM-DD):\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " 2023-01-03\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Time difference: 2 days, 0 hours, 0 minutes\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.8 Write a Python program that takes in two dates as input (in the format YYYY-MM-DD) and calculates the \n",
+    "#difference between them in days, hours, and minutes using Pandas time delta. Theprogram should prompt the user to enter\n",
+    "#the dates and display the result.\n",
+    "#Answer.8 : \n",
+    "import pandas as pd\n",
+    "\n",
+    "def calculate_time_difference(start_date, end_date):\n",
+    "    # Convert the input dates to pandas Timestamp objects\n",
+    "    start_timestamp = pd.Timestamp(start_date)\n",
+    "    end_timestamp = pd.Timestamp(end_date)\n",
+    "\n",
+    "    # Calculate the time difference using pandas timedelta\n",
+    "    time_difference = end_timestamp - start_timestamp\n",
+    "\n",
+    "    # Extract days, hours, and minutes from the time difference\n",
+    "    days = time_difference.days\n",
+    "    hours = time_difference.seconds // 3600\n",
+    "    minutes = (time_difference.seconds // 60) % 60\n",
+    "\n",
+    "    return days, hours, minutes\n",
+    "\n",
+    "def main():\n",
+    "    print(\"Enter the start date (YYYY-MM-DD):\")\n",
+    "    start_date = input()\n",
+    "    \n",
+    "    print(\"Enter the end date (YYYY-MM-DD):\")\n",
+    "    end_date = input()\n",
+    "\n",
+    "    try:\n",
+    "        days, hours, minutes = calculate_time_difference(start_date, end_date)\n",
+    "        print(f\"Time difference: {days} days, {hours} hours, {minutes} minutes\")\n",
+    "    except ValueError:\n",
+    "        print(\"Invalid date format. Please enter dates in the format YYYY-MM-DD.\")\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "1c226f02-7056-4e28-bc4e-fb539a806c75",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the file path of the CSV file:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " /home/jovyan/work/categorical_data.csv\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the column name to convert to categorical:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Country\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the category order as a comma-separated list:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " USA,UK,Canada,Australia\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Sorted DataFrame:\n",
+      "      Name  Gender    Country      Hobby\n",
+      "0    Alice  Female        USA    Reading\n",
+      "3    David    Male        USA    Cooking\n",
+      "2  Charlie    Male         UK      Music\n",
+      "1      Bob    Male     Canada     Sports\n",
+      "4     Emma  Female  Australia  Traveling\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.9 Write a Python program that reads a CSV file containing categorical data and converts a specified\n",
+    "#column to a categorical data type. The program should prompt the user to enter the file path, column\n",
+    "#name, and category order, and then display the sorted data.\n",
+    "#Answer.9 :  \n",
+    "import pandas as pd\n",
+    "\n",
+    "def convert_column_to_categorical(file_path, column_name, category_order):\n",
+    "    # Read the CSV file into a DataFrame\n",
+    "    df = pd.read_csv(file_path)\n",
+    "\n",
+    "    # Convert the specified column to categorical with custom category order\n",
+    "    df[column_name] = pd.Categorical(df[column_name], categories=category_order, ordered=True)\n",
+    "\n",
+    "    # Sort the DataFrame by the specified column\n",
+    "    df_sorted = df.sort_values(by=column_name)\n",
+    "\n",
+    "    return df_sorted\n",
+    "\n",
+    "def main():\n",
+    "    print(\"Enter the file path of the CSV file:\")\n",
+    "    file_path = input()\n",
+    "\n",
+    "    print(\"Enter the column name to convert to categorical:\")\n",
+    "    column_name = input()\n",
+    "\n",
+    "    print(\"Enter the category order as a comma-separated list:\")\n",
+    "    category_order = input().split(',')\n",
+    "\n",
+    "    df_sorted = convert_column_to_categorical(file_path, column_name, category_order)\n",
+    "\n",
+    "    print(\"\\nSorted DataFrame:\")\n",
+    "    print(df_sorted)\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "e1f0debf-f048-4b64-a135-68b4c4256241",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the file path of the CSV file:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " /home/jovyan/work/sales_data.csv\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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/OWXX+qPP/4oVINU+Oekdu3aqlmzpn7++ecL/vwXnL0RFxenb7/91ukPD/n5+Y5LCQoUnB7+0UcfOY2vW7dO27dvV9u2bYv1XkjnFgb08fFRr169tHPnTqeF8C4kNjZW/v7+hV7/4MGD+vbbbwu9fr9+/XT69Gl9/PHHmjp1qmJjY53OLmjZsqUqVqyobdu2XfA9KjiCfKUoyecOALAmjnADUPv27XXVVVepS5cuqlOnjvLz87Vp0yaNHz9eQUFBGjJkiKRz1xWHhoZq0KBBGjlypLy9vTVz5kz9/PPP//gaMTExGjVqlJ5++mn9/vvv6tChg0JDQ/Xnn3/qxx9/VGBgoJ5//nlt3rxZDz30kO6++27VrFlTPj4++vbbb7V58+ZiHYmUpA0bNigkJES5ubk6dOiQli5dqhkzZqhKlSr64osvHL+016lTR9dcc42efPJJGYahsLAwffHFF06nwhZo2LChJOm1115TYmKivL29Vbt27Ut6T/5u/fr1GjhwoO6++24dOHBATz/9tKpWrarBgwc7zfP09NSDDz6oJ554QoGBgYWunzXLo48+qunTp+vWW2/VqFGjVK1aNX355Zd666239MADD6hWrVqSpD59+mjChAnq06ePRo8erZo1a+qrr77SN998U+g5e/furXfeeUf33nuv7rvvPh05ckTjxo1TcHCw07x77rlHU6ZM0aBBg7Rz5061bt1a+fn5Wrt2rerWrasePXpIOvcZLV++XF988YUiIyNVoUKFCx499PT01Lx585SQkKDY2Fg98MADat26tQIDA7Vv3z59+umn+uKLL5SRkSFJ6ty5s6ZOnao6deqoUaNG2rBhg1555ZVCR5avueYa+fv7a+bMmapbt66CgoIUFRWlqKgovfPOO+rYsaPat2+vvn37qmrVqjp69Ki2b9+ujRs3OgL1008/rS+++EJt27bV008/LX9/f7399tuO65cLjvLXrl1b//nPfzRp0iR5eHioY8eO2rt3r5599llFR0fr0UcfLfbnW7FiRfXp00eTJ09WtWrVirXCfsWKFfXss8/qqaeeUp8+fXTPPffoyJEjev755+Xn56eRI0c6za9Tp45iY2M1duxYHThwQO+++67T9qCgIE2aNEmJiYk6evSo7rrrLlWpUkV//fWXfv75Z/3111+aPHlysffpclHczx0AYFEuXrQNwGVgzpw5Rs+ePY2aNWsaQUFBhre3t3H11VcbvXv3NrZt2+Y0d82aNUZsbKwREBBgVK5c2Rg4cKCxcePGQiszF7Xar2GcW8W3devWRnBwsOHr62tUq1bNuOuuu4wlS5YYhmEYf/75p9G3b1+jTp06RmBgoBEUFGQ0atTImDBhgnH27NmL7kfBaxbcfH19jcjISCMhIcF47bXXjOPHjxd6zLZt24z4+HijQoUKRmhoqHH33Xcb+/fvNyQZI0eOdJo7YsQIIyoqyvDw8DAkGcuWLSvRe1KUglXKFy9ebPTu3duoWLGiY+XnX3/9tcjH7N2715BkDBo06KLPXdR7c6EV3AvExcUZ9evXL3Lbvn37jJ49exrh4eGGt7e3Ubt2beOVV14ptMrywYMHjX//+99GUFCQUaFCBePf//63sWbNmiLfj2nTphl169Y1/Pz8jHr16hlz5swptEq5YZxbYf65554zatasafj4+Bjh4eFGmzZtjDVr1jjmbNq0yWjZsqUREBBgSCpyBfTzHTt2zHjhhReM66+/3uln/9577zVWr17tmJeRkWEMGDDAqFKlihEQEGDcfPPNxnfffVfkSusff/yxUadOHcPb27vQz9HPP/9sdOvWzahSpYrh7e1tREREGG3atDHefvttp+f47rvvjBtvvNHw9fU1IiIijMcff9x4+eWXDUnGsWPHHPPy8vKMl19+2ahVq5bh7e1tVKpUybj33nuNAwcOOD3fxT7XAsuXLzckGS+99NI/vm9/9/777xuNGjUyfHx8jJCQEKNr167GL7/8UuTcd99915Bk+Pv7G5mZmUXOWbFihXHrrbcaYWFhhre3t1G1alXj1ltvNT755BPHnOL+PBelNKuU33rrrYXmSjIefPBBp7E9e/YYkoxXXnnFaby4nzsAwHpshlHEsr0AgMvWpEmT9Mgjj2jr1q2qX7++q8tBOUlISNDevXu1a9cuU55/6NChmjx5sg4cOFDkYnoAAKDkOKUcAK4QP/30k/bs2aNRo0apa9euhG0Le+yxx9SkSRNFR0fr6NGjmjlzplJSUhyLCZalH374Qbt27dJbb72l+++/n7ANAEAZ4gg3AFwhYmJilJaWpltuuUUzZsy4pK/awuVtyJAhWrBggdLS0mSz2VSvXj0lJSXp3nvvLfPXstlsCggIUKdOnTRlypSLfvc2AAAoGQI3AAAAAAAm4GvBAAAAAAAwAYEbAAAAAAATELgBAAAAADABq5RLys/P16FDh1ShQgXZbDZXlwMAAABYmmEYysrKUlRUlDw8OAYI6yJwSzp06JCio6NdXQYAAADgVg4cOKCrrrrK1WUApiFwS6pQoYKkcw0fHBzs4moAAAAAazt+/Liio6Mdv4cDVkXglhynkQcHBxO4AQAAgHLC5ZywOi6YAAAAAADABARuAAAAAABMQOAGAAAAAMAEXMMNAAAAAMWUl5en3NxcV5cBF/H29panp2ex5xO4AQAAAOAfGIahtLQ0HTt2zNWlwMUqVqyoiIiIYi36R+AGAAAAgH9QELarVKmigIAAVlh3Q4Zh6NSpU0pPT5ckRUZG/uNjCNwAAAAAcBF5eXmOsB0eHu7qcuBC/v7+kqT09HRVqVLlH08vZ9E0AAAAALiIgmu2AwICXFwJLgcFPwfFuZafwA0AAAAAxcBp5JBK9nNA4AYAAAAAwAQEbgAAAAC4AiQnJ+u6665zdRkoAQI3AAAAAJRS3759ZbPZZLPZ5O3trRo1amjYsGE6efKkq0v7R8uXL5fNZivWV50ZhqF3331XN954o4KCglSxYkXdcMMNmjhxok6dOlXs17TZbJo/f37pi77CELgBAAAA4BJ06NBBqamp+v333/Xiiy/qrbfe0rBhw4qcW5yFti5HvXv3VlJSkrp27aply5Zp06ZNevbZZ/X5559r8eLFri6vVM6cOWP6axC4AQAAAOAS+Pr6KiIiQtHR0erZs6d69erlOIpbcBr4hx9+qBo1asjX11eGYWj//v3q2rWrgoKCFBwcrG7duunPP/90et6XXnpJdrtdFSpU0IABA3T69Gmn7a1atVJSUpLT2O23366+ffs67ufk5Gj48OGKjo6Wr6+vatasqQ8++EB79+5V69atJUmhoaGy2WxOj/u7uXPnaubMmfr444/11FNPqVmzZoqJiVHXrl317bffOp5n3bp1io+PV6VKlRQSEqK4uDht3LjR8TwxMTGSpDvuuEM2m81xX5K++OILNW3aVH5+fqpRo4aef/55nT171rF9x44duvnmm+Xn56d69eppyZIlhY6Wb9myRW3atJG/v7/Cw8P1n//8RydOnHBs79u3r26//XaNHTtWUVFRqlWrlkaNGqWGDRsW2uemTZvqueeeK/L9KAkCNwAAAACUIX9/f6cj2bt379bcuXP1v//9T5s2bZJ0LhgfPXpUK1asUEpKin777Td1797d8Zi5c+dq5MiRGj16tNavX6/IyEi99dZbJa6lT58+mj17tl5//XVt375db7/9toKCghQdHa3//e9/kqSdO3cqNTVVr732WpHPMXPmTNWuXVtdu3YttM1msykkJESSlJWVpcTERH333Xf64YcfVLNmTXXq1ElZWVmSzgVySZoyZYpSU1Md97/55hvde++9euSRR7Rt2za98847mjp1qkaPHi1Jys/P1+23366AgACtXbtW7777rp5++mmnOk6dOqUOHTooNDRU69at0yeffKIlS5booYcecpq3dOlSbd++XSkpKVq4cKH69++vbdu2OWqRpM2bN+unn3664B8gSsLrkp8BAAAA5kgOcXUFKC/Jma6uAGXkxx9/1KxZs9S2bVvH2JkzZzRjxgxVrlxZkpSSkqLNmzdrz549io6OliTNmDFD9evX17p169SsWTNNnDhR/fv318CBAyVJL774opYsWVLoKPfF7Nq1S3PnzlVKSoratWsnSapRo4Zje1hYmCSpSpUqqlix4gWf59dff1Xt2rX/8fXatGnjdP+dd95RaGioVqxYoc6dOzv2v2LFioqIiHDMGz16tJ588kklJiY6anzhhRc0fPhwjRw5UosXL9Zvv/2m5cuXOx43evRoxcfHO55j5syZys7O1vTp0xUYGChJeuONN9SlSxe9/PLLstvtkqTAwEC9//778vHxcTy2ffv2mjJlipo1aybp3B8E4uLinN6r0uIINwAAAABcgoULFyooKEh+fn6KjY3Vv/71L02aNMmxvVq1ao6wKUnbt29XdHS0I2xLUr169VSxYkVt377dMSc2Ntbpdc6//082bdokT09PxcXFlWa3HAzDKNZ3T6enp2vQoEGqVauWQkJCFBISohMnTmj//v0XfdyGDRs0atQoBQUFOW733XefUlNTderUKe3cuVPR0dFOIb158+ZOz7F9+3Y1btzYEbYlqWXLlsrPz9fOnTsdYw0bNnQK25J033336eOPP9bp06eVm5urmTNnqn///v+4v8XBEW4AAAAAuAStW7fW5MmT5e3traioKHl7eztt/3sIlC4cYIsbbAt4eHjIMAynsb+fyu7v71/s57qYWrVqOf4QcDF9+/bVX3/9pYkTJ6patWry9fVVbGzsPy5Olp+fr+eff1533nlnoW1+fn7Fel8uNufv4+d/FpLUpUsX+fr6at68efL19VVOTo7+/e9/X/T1iosj3AAAAABwCQIDA3XttdeqWrVqhcJ2UerVq6f9+/frwIEDjrFt27YpMzNTdevWlSTVrVtXP/zwg9Pjzr9fuXJlpaamOu7n5eVp69atjvsNGzZUfn6+VqxYUWQdBUd68/LyLlpvz549tWvXLn3++eeFthmGoczMc5dEfPfdd3rkkUfUqVMn1a9fX76+vjp8+LDTfG9v70Kvd/3112vnzp269tprC908PDxUp04d7d+/32lRub9fcy2de083bdrk9HVsq1evloeHh2rVqnXR/fPy8lJiYqKmTJmiKVOmqEePHgoICLjoY4qLwA0AAAAA5ahdu3Zq1KiRevXqpY0bN+rHH39Unz59FBcXpxtuuEGSNGTIEH344Yf68MMPtWvXLo0cOVK//PKL0/O0adNGX375pb788kvt2LFDgwcPdvpO7ZiYGCUmJqp///6aP3++9uzZo+XLl2vu3LmSzp3qbrPZtHDhQv31119OK3r/Xbdu3dS9e3fdc889Gjt2rNavX699+/Zp4cKFateunZYtWyZJuvbaazVjxgxt375da9euVa9evQodZY+JidHSpUuVlpamjIwMSdJzzz2n6dOnKzk5Wb/88ou2b9+uOXPm6JlnnpEkxcfH65prrlFiYqI2b96s1atXOxZNKzh63atXL/n5+SkxMVFbt27VsmXL9PDDD6t3796O67cvZuDAgfr222/19ddfl9np5BKBGwAAAADKVcHXWYWGhupf//qX2rVrpxo1amjOnDmOOd27d9dzzz2nJ554Qk2bNtW+ffv0wAMPOD1P//79lZiY6Ajr1atXd3xFV4HJkyfrrrvu0uDBg1WnTh3dd999jqPAVatW1fPPP68nn3xSdru90Iref6931qxZevXVVzVv3jzFxcWpUaNGSk5OVteuXdW+fXtJ0ocffqiMjAw1adJEvXv31iOPPKIqVao4Pdf48eOVkpKi6OhoNWnSRNK5RcsWLlyolJQUNWvWTDfddJNeffVVVatWTZLk6emp+fPn68SJE2rWrJkGDhzoCON+fn6SpICAAH3zzTc6evSomjVrprvuuktt27bVG2+8UazPpGbNmmrRooVq166tG2+8sViPKQ6bcf5J/27o+PHjCgkJUWZmpoKDg11dDgAAwDmsUu4+3GyV8ivt9+/Tp09rz549ql69uiPgwbVWr16tm2++Wbt379Y111xzyc9nGIbq1Kmj+++/X4899thF55bk54FF0wAAAAAAl7V58+YpKChINWvW1O7duzVkyBC1bNmyTMJ2enq6ZsyYoT/++EP9+vUrg2r/H4EbAAAAAHBZy8rK0vDhw3XgwAFVqlRJ7dq10/jx48vkue12uypVqqR3331XoaGhZfKcBQjcAAAAAIDLWp8+fdSnTx9TntvMq6xZNA0AAAAAABMQuAEAAAAAMAGBGwAAAAAAExC4AQAAAAAwAYEbAAAAAAATELgBAAAAADABgRsAAAAAIEmy2WyaP3/+JT3H3r17ZbPZtGnTpgvOmTp1qipWrHhJr3Ml4Hu4AQAAAKAMxDz5Zbm91t6Xbi3V49LS0jR69Gh9+eWX+uOPP1SlShVdd911SkpKUtu2bUv8fH379tWxY8dKHNK7d++uTp06lfj1rjQEbgAAAABwA3v37lXLli1VsWJFjRs3To0aNVJubq6++eYbPfjgg9qxY0e51eLv7y9/f/9yez1X4ZRyAAAAAHADgwcPls1m048//qi77rpLtWrVUv369fXYY4/phx9+KPIxW7ZsUZs2beTv76/w8HD95z//0YkTJyRJycnJmjZtmj7//HPZbDbZbDYtX77c8djff/9drVu3VkBAgBo3bqzvv//ese38U8qTk5N13XXXacaMGYqJiVFISIh69OihrKwsx5ysrCz16tVLgYGBioyM1IQJE9SqVSslJSWV6ftUlgjcAAAAAGBxR48e1aJFi/Tggw8qMDCw0Pairqc+deqUOnTooNDQUK1bt06ffPKJlixZooceekiSNGzYMHXr1k0dOnRQamqqUlNT1aJFC8fjn376aQ0bNkybNm1SrVq1dM899+js2bMXrPG3337T/PnztXDhQi1cuFArVqzQSy+95Nj+2GOPafXq1VqwYIFSUlL03XffaePGjZfwrpiPU8oBAAAAwOJ2794twzBUp06dYj9m5syZys7O1vTp0x0h/Y033lCXLl308ssvy263y9/fXzk5OYqIiCj0+GHDhunWW89da/7888+rfv362r179wVryM/P19SpU1WhQgVJUu/evbV06VKNHj1aWVlZmjZtmmbNmuW41nzKlCmKiooq0ftQ3jjCDQAAAAAWZxiGpHOrkBfX9u3b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\n",
+      "text/plain": [
+       "<Figure size 1000x600 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "#Question.10 Write a Python program that reads a CSV file containing sales data for different products and\n",
+    "#visualizes the data using a stacked bar chart to show the sales of each product category over time. The\n",
+    "#program should prompt the user to enter the file path and display the chart.\n",
+    "#Answer.10 \n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "def visualize_sales_data(file_path):\n",
+    "    # Read the CSV file into a DataFrame\n",
+    "    df = pd.read_csv(file_path)\n",
+    "\n",
+    "    # Convert the 'Date' column to datetime format\n",
+    "    df['Date'] = pd.to_datetime(df['Date'])\n",
+    "\n",
+    "    # Group the data by 'Date' and 'Product Category' and calculate the total sales for each category on each date\n",
+    "    sales_data = df.groupby(['Date', 'Product Category'])['Sales'].sum().unstack()\n",
+    "\n",
+    "    # Plot the stacked bar chart\n",
+    "    sales_data.plot(kind='bar', stacked=True, figsize=(10, 6))\n",
+    "    plt.xlabel('Date')\n",
+    "    plt.ylabel('Sales')\n",
+    "    plt.title('Sales Data by Product Category over Time')\n",
+    "    plt.legend(title='Product Category', bbox_to_anchor=(1.05, 1), loc='upper left')\n",
+    "\n",
+    "    # Show the chart\n",
+    "    plt.tight_layout()\n",
+    "    plt.show()\n",
+    "\n",
+    "def main():\n",
+    "    print(\"Enter the file path of the CSV file:\")\n",
+    "    file_path = input()\n",
+    "\n",
+    "    visualize_sales_data(file_path)\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "2ad78df7-6d3e-4af5-8d96-9aed4653cbd4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter the file path of the CSV file containing the student data:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " /home/jovyan/work/student_data.csv\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean Score: 83.5\n",
+      "Median Score: 85.0\n",
+      "Mode Score: 85\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.11 You are given a CSV file containing student data that includes the student ID and their test score. Write\n",
+    "#a Python program that reads the CSV file, calculates the mean, median, and mode of the test scores, and\n",
+    "#displays the results in a table.\n",
+    "#The program should do the following :\n",
+    "#I Prompt the user to enter the file path of the CSV file containing the student dataR\n",
+    "#I Read the CSV file into a Pandas DataFrameR\n",
+    "#I Calculate the mean, median, and mode of the test scores using Pandas toolsR\n",
+    "#I Display the mean, median, and mode in a table.\n",
+    "#Assume the CSV file contains the following columnsM\n",
+    "#I Student ID: The ID of the studentR\n",
+    "#I Test Score: The score of the student's test.\n",
+    "#Example usage of the program:\n",
+    "#Enter the file path of the CSV file containing the student data: student_data.csv\n",
+    "#+-----------+--------+\n",
+    "#| Statistic | Value |\n",
+    "#+-----------+--------+\n",
+    "#| Mean | 79.6 |\n",
+    "#| Median | 82 |\n",
+    "#| Mode | 85, 90 |\n",
+    "#+-----------+--------+\n",
+    "#Assume that the CSV file student_data.csv contains the following data:\n",
+    "#Student ID,Test Score\n",
+    "#1,85\n",
+    "#2,90\n",
+    "#3,80\n",
+    "#4,75\n",
+    "#5,85\n",
+    "#6,82\n",
+    "#7,78\n",
+    "#8,85\n",
+    "#9,90\n",
+    "#10,85\n",
+    "#The program should calculate the mean, median, and mode of the test scores and display the results\n",
+    "#in a table.\n",
+    "#Answer.11 : \n",
+    "import pandas as pd\n",
+    "\n",
+    "def calculate_statistics(file_path):\n",
+    "    # Read the CSV file into a DataFrame\n",
+    "    df = pd.read_csv(file_path)\n",
+    "\n",
+    "    # Calculate the mean, median, and mode of the test scores\n",
+    "    mean_score = df['Test Score'].mean()\n",
+    "    median_score = df['Test Score'].median()\n",
+    "    mode_score = df['Test Score'].mode()\n",
+    "\n",
+    "    return mean_score, median_score, mode_score\n",
+    "\n",
+    "def main():\n",
+    "    print(\"Enter the file path of the CSV file containing the student data:\")\n",
+    "    file_path = input()\n",
+    "\n",
+    "    mean_score, median_score, mode_score = calculate_statistics(file_path)\n",
+    "\n",
+    "    print(\"Mean Score:\", mean_score)\n",
+    "    print(\"Median Score:\", median_score)\n",
+    "    print(\"Mode Score:\", ', '.join(map(str, mode_score)))\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    main()\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f73b938f-ba02-450e-a444-fd3ed219dd8f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
