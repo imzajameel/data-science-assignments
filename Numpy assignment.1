@@ -1,0 +1,277 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "26f35342-c2a3-4b44-bf76-a1b2a84eb36b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data type of list_: <class 'list'>\n",
+      "Data type of array_list: <class 'numpy.ndarray'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Numpy assignment.1 \n",
+    "#Consider the below code to answer further questions:\n",
+    "#import numpy as np\n",
+    "#list_ = [ ‘1’ , ’2’ , ‘3’ , ‘4’ , ‘5’ ]\n",
+    "#array_list = np.array(object = list_)\n",
+    "\n",
+    "#Question.1 Is there any difference in the data type of variables list_ and array_list? If there is then write a code\n",
+    "#to print the data types of both the variables.\n",
+    "#Answer.1 Yes, there is a difference in the data type of variables list_ and array_list.\n",
+    "\n",
+    "#In the given code, list_ is a regular Python list containing string elements: ['1', '2', '3', '4', '5'].\n",
+    "\n",
+    "#On the other hand, array_list is a NumPy array created using the np.array() function. Since the elements in list_ are strings,\n",
+    "#the NumPy array will also contain strings.\n",
+    "\n",
+    "#Here's the code to print the data types of both variables:\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "list_ = ['1', '2', '3', '4', '5']\n",
+    "array_list = np.array(object=list_)\n",
+    "\n",
+    "# Printing the data types of both variables\n",
+    "print(\"Data type of list_:\", type(list_))\n",
+    "print(\"Data type of array_list:\", type(array_list))\n",
+    "\n",
+    "#As you can see, list_ has the data type list, and array_list has the data type numpy.ndarray, indicating that it's a NumPy \n",
+    "#array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9438de89-3979-4a32-8d40-fcc9ce183aae",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data types of elements in list_:\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "\n",
+      "Data types of elements in array_list:\n",
+      "<class 'numpy.str_'>\n",
+      "<class 'numpy.str_'>\n",
+      "<class 'numpy.str_'>\n",
+      "<class 'numpy.str_'>\n",
+      "<class 'numpy.str_'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.2 Write a code to print the data type of each and every element of both the variables list_ and\n",
+    "#array_list.\n",
+    "#Answer.2 To print the data type of each element in both variables list_ and array_list, you can use a simple loop. Here's \n",
+    "#the code to achieve that:\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "list_ = ['1', '2', '3', '4', '5']\n",
+    "array_list = np.array(object=list_)\n",
+    "\n",
+    "# Printing data type of each element in list_\n",
+    "print(\"Data types of elements in list_:\")\n",
+    "for element in list_:\n",
+    "    print(type(element))\n",
+    "\n",
+    "# Printing data type of each element in array_list\n",
+    "print(\"\\nData types of elements in array_list:\")\n",
+    "for element in array_list:\n",
+    "    print(type(element))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "83455ed9-99c9-4c05-a27c-9345d63ed1a2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data types of elements in list_:\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "<class 'str'>\n",
+      "\n",
+      "Data types of elements in array_list:\n",
+      "<class 'numpy.int64'>\n",
+      "<class 'numpy.int64'>\n",
+      "<class 'numpy.int64'>\n",
+      "<class 'numpy.int64'>\n",
+      "<class 'numpy.int64'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.3 Considering the following changes in the variable, array_list:\n",
+    "#array_list = np.array(object = list_, dtype = int)\n",
+    "#Will there be any difference in the data type of the elements present in both the variables, list_ and\n",
+    "#array_list? If so then print the data types of each and every element present in both the variables, list_\n",
+    "#and array_list.\n",
+    "#Answer.3 Yes, there will be a difference in the data type of the elements present in variables list_ and array_list after\n",
+    "#the change is made.\n",
+    "\n",
+    "#In the original code, list_ contains string elements: ['1', '2', '3', '4', '5']. However, when creating array_list, we \n",
+    "#specify the dtype parameter as int, which means we want the elements to be converted to integers.\n",
+    "\n",
+    "#Let's see the code and print the data types of each element in both variables:\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "list_ = ['1', '2', '3', '4', '5']\n",
+    "array_list = np.array(object=list_, dtype=int)\n",
+    "\n",
+    "# Printing data type of each element in list_\n",
+    "print(\"Data types of elements in list_:\")\n",
+    "for element in list_:\n",
+    "    print(type(element))\n",
+    "\n",
+    "# Printing data type of each element in array_list\n",
+    "print(\"\\nData types of elements in array_list:\")\n",
+    "for element in array_list:\n",
+    "    print(type(element))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "64932904-1408-4ec4-a036-b9e38c3df35e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Shape of num_array: (2, 3)\n",
+      "Size of num_array: 6\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Consider the below code to answer further questions:\n",
+    "#import numpy as np\n",
+    "#num_list = [ [ 1 , 2 , 3 ] , [ 4 , 5 , 6 ] ]\n",
+    "#num_array = np.array(object = num_list)\n",
+    "#Question.4. Write a code to find the following characteristics of variable, num_array:\n",
+    "#(i) shape\n",
+    "#(ii) size\n",
+    "#Answer.4 We can find the shape and size of the variable num_array using NumPy functions. Here's the code to achieve that:\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "num_list = [[1, 2, 3], [4, 5, 6]]\n",
+    "num_array = np.array(object=num_list)\n",
+    "\n",
+    "# (i) Finding the shape of num_array\n",
+    "shape = num_array.shape\n",
+    "\n",
+    "# (ii) Finding the size of num_array\n",
+    "size = num_array.size\n",
+    "\n",
+    "# Printing the results\n",
+    "print(\"Shape of num_array:\", shape)\n",
+    "print(\"Size of num_array:\", size)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "2324a97c-22ad-4739-a2e7-dd3749f13328",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0. 0. 0.]\n",
+      " [0. 0. 0.]\n",
+      " [0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.5 Write a code to create numpy array of 3*3 matrix containing zeros only, using a numpy array\n",
+    "#creation function.\n",
+    "#Answer.5 : \n",
+    "#You can create a NumPy array of a 3x3 matrix containing zeros using the numpy.zeros() function. Here's the code to achieve\n",
+    "#that:\n",
+    "import numpy as np\n",
+    "\n",
+    "# Creating a 3x3 matrix containing zeros\n",
+    "zero_matrix = np.zeros((3, 3))\n",
+    "\n",
+    "print(zero_matrix)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "a7e025e8-c471-4e2f-ad79-b63ffb128fff",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1. 0. 0. 0. 0.]\n",
+      " [0. 1. 0. 0. 0.]\n",
+      " [0. 0. 1. 0. 0.]\n",
+      " [0. 0. 0. 1. 0.]\n",
+      " [0. 0. 0. 0. 1.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Question.6 Create an identity matrix of shape (5,5) using numpy functions?\n",
+    "#Answer.6 : \n",
+    "#You can create an identity matrix of shape (5, 5) using the numpy.identity() function. Here's the code to achieve that:\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "# Creating a 5x5 identity matrix\n",
+    "identity_matrix = np.identity(5)\n",
+    "\n",
+    "print(identity_matrix)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
